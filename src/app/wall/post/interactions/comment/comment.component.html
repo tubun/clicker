@@ -6,7 +6,7 @@
 
         <!-- Post image -->
         <div class="image">
-            <img src="../../../../assets/demo-profile.jpg" alt="">
+            <img [src]="post.post" alt="">
         </div>
 
         <!-- Comment area -->
@@ -23,8 +23,8 @@
             <!-- Add new comment -->
             <div class="new-comment">
                 <form [formGroup]="commentForm" (ngSubmit)="addComment()">
-                    <input type="text" placeholder="Add a comment" formControlName="comment">
-                    <button type="submit" [disabled]="!hasComment">POST</button>
+                    <input type="text" placeholder="Add a comment" formControlName = "comment" (keyup)="checkComment()">
+                    <button mat-icon-button type="submit" [disabled]="!hasComment"> <mat-icon>send</mat-icon></button>
                 </form>
             </div>
         </div>

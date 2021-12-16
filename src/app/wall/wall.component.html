@@ -1,5 +1,9 @@
-<div class="container">
+<div class="container"  
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="5"
+    (scrolled)="onScroll()">
     <div class="inner">
-        <app-post></app-post>
+        <app-post [post]="post" *ngFor="let post of posts;index as i"></app-post>
     </div>
 </div>

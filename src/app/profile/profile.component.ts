@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
+  api ="https://picsum.photos/images#3"
+  
   constructor() { }
 
   ngOnInit(): void {

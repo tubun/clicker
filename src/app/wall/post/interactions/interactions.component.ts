@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ShareComponent } from './share/share.component';
 import { CommentComponent } from './comment/comment.component';
+
 
 @Component({
   selector: 'app-interactions',
@@ -9,7 +10,7 @@ import { CommentComponent } from './comment/comment.component';
   styleUrls: ['./interactions.component.scss']
 })
 export class InteractionsComponent implements OnInit {
-
+  @Input() comments:any;
   like=false;
 
   constructor(
@@ -26,8 +27,11 @@ export class InteractionsComponent implements OnInit {
     })
   }
 
-  comment(){
+  openComment(){
     const shareModal = this._dialog.open(CommentComponent,{
+      data:{
+        post: this.comments.image,
+      },
       height: '500px',
       width:'500px'
     })

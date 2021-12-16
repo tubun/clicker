@@ -1,16 +1,16 @@
 <div class="post">
     <div class="user">
         <div class="profile-img" (click)="openProfile()">
-            <img src="../../../assets/demo-profile.jpg" alt="">
+            <img [src]="post.profile" alt="">
         </div>
         <div class="profile-details" (click)="openProfile()">
-            <small>FC Barcelona</small>
-            <small>Barcelona,Spain</small>
+            <small>{{post.userName}}</small>
+            <small>{{post.city}}, {{post.country}}</small>
         </div>
     </div>
     <div class="image">
-        <img src="../../../assets/demo-profile.jpg" alt="">
+        <img [src]="post.image" alt="">
     </div>
-    <app-interactions></app-interactions>
+    <app-interactions [comments]="post"></app-interactions>
     <div class="comments"></div>
 </div>

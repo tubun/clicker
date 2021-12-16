@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { FormBuilder,Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
+import { CommentData } from '../../../../shared/interfaces/dialog-data';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-comment',
@@ -14,11 +16,14 @@ export class CommentComponent implements OnInit {
   hasComment:boolean = false;
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public post: CommentData,
     private _dialog: MatDialog,
-    private _fb:FormBuilder
+    private _fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
+
+    console.log(this.post)
 
     this.commentForm = this._fb.group({
       comment: [null,Validators.required]
@@ -76,18 +81,24 @@ export class CommentComponent implements OnInit {
     ]
   }
 
-  addComment(){
+  checkComment(){
 
     if(this.commentForm.status == 'VALID'){
-      const commentDetails = {
-        userName: 'random',
-        desc: this.commentForm.value.comment
-      }
-
       this.hasComment = true;
-
-      this.userComments.push(commentDetails)
+    }else{
+      this.hasComment = false;
     }
+  }
+
+  addComment(){
+
+    const commentDetails = {
+      userName: 'random',
+      desc: this.commentForm.value.comment
+    }
+
+    this.userComments.push(commentDetails)
+    
   }
 
   closePrompt(){

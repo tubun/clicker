@@ -1,7 +1,6 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
-
 import { MaterialModule } from './material.module';
 
 @NgModule({
@@ -9,7 +8,7 @@ import { MaterialModule } from './material.module';
         CommonModule,
         ReactiveFormsModule,
         FormsModule,
-        MaterialModule
+        MaterialModule,
     ]
 })
 

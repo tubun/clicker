@@ -6,7 +6,7 @@ import { InteractionsComponent } from './post/interactions/interactions.componen
 import { SharedModule } from "../shared/shared.module";
 import { ShareComponent } from './post/interactions/share/share.component';
 import { CommentComponent } from './post/interactions/comment/comment.component';
-
+import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 
 const routes: Routes = [
   {
@@ -21,11 +21,12 @@ const routes: Routes = [
     PostComponent,
     InteractionsComponent,
     ShareComponent,
-    CommentComponent
+    CommentComponent,
   ],
   imports: [
     SharedModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    InfiniteScrollModule
   ],
   exports:[
     RouterModule
