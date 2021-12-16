@@ -1,0 +1,93 @@
+.comments{
+    height: 100%;
+    position: relative;
+    padding: 1rem 0;
+    box-sizing: border-box;
+
+    .close{
+        position: absolute;
+        left: 99%;
+        top: -3%;
+        cursor: pointer;
+        color: var(--color-genoa);
+    }
+
+
+    .comment-view{
+        height: 100%;
+        width: 100%;
+        display: flex;
+
+        .image{
+            width: 50%;
+
+            img{
+                display: block;
+                max-width: 98%;
+                height: 100%;
+            }
+        }
+    
+        .comment-area{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* width */
+            ::-webkit-scrollbar {
+                width: 10px;
+            }
+            
+            /* Track */
+            ::-webkit-scrollbar-track {
+                box-shadow: inset 0 0 5px grey; 
+                border-radius: 10px;
+            }
+            
+            /* Handle */
+            ::-webkit-scrollbar-thumb {
+                background: red; 
+                border-radius: 10px;
+            }
+            
+            /* Handle on hover */
+            ::-webkit-scrollbar-thumb:hover {
+                background: #b30000; 
+            }
+            
+            .existing-comments{
+                height: 85%;
+                overflow-y: auto;
+                
+
+                .user-comment{
+                    display: flex;
+                    width: 100%;
+                    margin: 0.5rem 0;
+                    height: fit-content;
+
+                    span{
+                        width: 40%;
+                        color: darkgray;
+                    }
+
+                    small{
+                        width: 60%;
+                    }
+                }
+            }
+
+            .new-comment{
+                height: 10%;
+                display: flex;
+
+                input{
+                    outline: none;
+                    border: none;
+                }
+            }
+    
+        }
+    }
+  
+}

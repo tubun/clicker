@@ -1,0 +1,39 @@
+.post{
+    height: 100%;
+    .user{
+        height: 5%;
+        display: flex;
+        justify-content: flex-start;
+
+        .profile-img,.profile-details{
+            margin: 0.5rem;
+            cursor: pointer;
+        }
+
+        .profile-img{
+            width: 5%;
+
+            img{
+                display: block;
+                max-width: 100%;
+                border-radius: 50%;
+            }
+
+        }
+
+        .profile-details{
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    .image{
+        height: 50%;
+
+        img{
+            display: block;
+            max-width: 100%;
+        }
+    }
+
+}

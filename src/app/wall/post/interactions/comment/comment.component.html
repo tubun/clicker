@@ -1,0 +1,32 @@
+<div class="comments">
+    <mat-icon (click)="closePrompt()" class="close">highlight_off</mat-icon>
+    
+    <!-- Comment View -->
+    <div class="comment-view">
+
+        <!-- Post image -->
+        <div class="image">
+            <img src="../../../../assets/demo-profile.jpg" alt="">
+        </div>
+
+        <!-- Comment area -->
+        <div class="comment-area">
+            
+            <!-- Existing comments -->
+            <div class="existing-comments">
+                <div class="user-comment" *ngFor="let comment of userComments;index as i">
+                    <span>{{comment.userName}}: &nbsp;</span>
+                    <small>{{comment.desc}}</small>
+                </div>
+            </div>
+
+            <!-- Add new comment -->
+            <div class="new-comment">
+                <form [formGroup]="commentForm" (ngSubmit)="addComment()">
+                    <input type="text" placeholder="Add a comment" formControlName="comment">
+                    <button type="submit" [disabled]="!hasComment">POST</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

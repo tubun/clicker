@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="inner">
+
+        <!-- Signup view -->
+        <div class="signup" *ngIf="!showLogin">
+            <form [formGroup]="signupForm" (ngSubmit)="signUp()" >
+                <div class="form-wrapper">
+                    <label>Name</label>
+                    <input type="text" formControlName="name">
+                </div>
+
+                <div class="form-wrapper">
+                    <label>Email</label>
+                    <input type="text" formControlName="email">
+                </div>
+
+                <div class="form-wrapper">
+                    <label>Password</label>
+                    <input type="password" formControlName="password">
+                </div>
+            </form>
+            <a (click)="showLogin=!showLogin">Login</a>
+        </div>
+
+
+        <!-- Login View -->
+        <div class="login" *ngIf="showLogin">
+            <form [formGroup]="loginForm" (ngSubmit)="logIn()" >
+                <div class="form-wrapper">
+                    <label>Email</label>
+                    <input type="text" formControlName="email">
+                </div>
+
+                <div class="form-wrapper">
+                    <label>Password</label>
+                    <input type="password" formControlName="password">
+                </div>
+            </form>
+            <a (click)="showLogin=!showLogin">Sign Up</a>
+        </div>
+    </div>
+</div>

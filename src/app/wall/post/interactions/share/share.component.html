@@ -1,0 +1,9 @@
+<div class="social-media-platforms">
+    <mat-icon (click)="closePrompt()" class="close">highlight_off</mat-icon>
+
+    <!-- Sharing Buttons -->
+    <div class="social-media" *ngFor="let platform of platforms;index as i" (click)="openPlatform(i)">
+        <mat-icon>{{platform.icon}}</mat-icon>
+        <span>{{platform.title}}</span>
+    </div>
+</div>

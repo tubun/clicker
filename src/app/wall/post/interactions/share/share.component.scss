@@ -1,0 +1,27 @@
+.social-media-platforms{
+    height: 100%;
+    position: relative;
+    padding: 1rem;
+    box-sizing: border-box;
+    .close{
+        position: absolute;
+        left: 95%;
+        top: -3%;
+        cursor: pointer;
+        color: var(--color-genoa);
+    }
+
+    .social-media{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        margin: 1rem 0;
+
+        mat-icon,span{
+            margin: 0 0.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    }
+    
+}

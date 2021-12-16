@@ -1,0 +1,24 @@
+.interactions{
+    margin: 1rem 0;
+    display: flex;
+    width: 20%;
+    justify-content: flex-start;
+
+    mat-icon:not(.like){
+        cursor: pointer;
+        margin: 0 1rem;
+    }
+
+    mat-icon:hover{
+        color: darkgray;
+    }
+
+    .like{
+        cursor: pointer;
+        margin-right: 1rem;
+    }
+
+    .like:active{
+        transform: scale(1.3);
+    }
+}
