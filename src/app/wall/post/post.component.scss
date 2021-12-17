@@ -24,6 +24,7 @@
         .profile-details{
             display: flex;
             flex-direction: column;
+
         }
     }
 
@@ -33,6 +34,17 @@
         img{
             display: block;
             max-width: 100%;
+        }
+    }
+
+    .caption{
+        display: flex
+    }
+
+    .user .profile-details,.caption{
+        .user-name{
+            color: darkgray;
+            margin-right: 1rem;
         }
     }
 

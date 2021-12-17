@@ -1,0 +1,102 @@
+.inner-profile{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+
+
+    .profile{
+        width:40%;
+        height:20%;
+        display: flex;  
+        justify-content: space-between;
+        margin-bottom: 1rem;
+
+        .profile-pic{
+            width: 50%;
+           
+
+            img{
+                display: block;
+                max-width: 75%;
+                border: 1px solid red;
+                border-radius: 50%;
+                margin: 0 auto;
+            }
+        }
+
+        .profile-info{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+
+            span{
+                display: flex;
+                align-items: baseline;
+                justify-content: flex-start;
+                width: 100%;
+                margin: 0.5rem 0;
+                height: auto;
+
+                mat-icon{
+                    color: darkgray;
+                    margin-right:0.5rem;
+                }
+
+                small{
+                    position: relative;
+                    bottom: 4px;
+                }
+            }
+        }
+    }
+
+    .post-grid{
+        display: grid;
+        margin-bottom: 1rem;
+        grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+        grid-auto-rows: 300px;
+        grid-column-gap: 0.4rem;
+        grid-row-gap: 0.4rem;
+
+        .image{
+            width: 100%;
+
+            img{
+                display: block;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+        }
+    }
+}
+
+
+@media screen and(max-width:768px) {
+    .inner-profile {
+        .profile{
+            width:100%;
+            flex-direction: column;
+            align-content: center;
+            justify-content: center;
+
+            .profile-pic{
+                width: 100%;     
+            }
+
+            .profile-info{
+                margin: 0 auto;
+
+                span{
+                    justify-content: center;
+                }
+            }
+        }
+
+        .post-grid{
+            grid-row-gap: 1rem;
+        }
+    }
+}

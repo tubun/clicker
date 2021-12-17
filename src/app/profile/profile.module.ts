@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from '@angular/router';
 import { ProfileComponent } from "./profile.component";
 import { SharedModule } from "../shared/shared.module";
+import { ProfilePostComponent } from './profile-post/profile-post.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,8 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    ProfilePostComponent
   ],
   imports: [
     SharedModule,

@@ -1,15 +1,15 @@
 import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
-import { CommentData } from '../../../../shared/interfaces/dialog-data';
+import { CommentData } from '../../shared/interfaces/dialog-data';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-comment',
-  templateUrl: './comment.component.html',
-  styleUrls: ['./comment.component.scss']
+  selector: 'app-profile-post',
+  templateUrl: './profile-post.component.html',
+  styleUrls: ['./profile-post.component.scss']
 })
-export class CommentComponent implements OnInit {
+export class ProfilePostComponent implements OnInit {
 
   userComments:any;
   commentForm:any;

@@ -1,9 +1,13 @@
+
+<!-- Infinite scroller -->
 <div class="container"  
     infiniteScroll
     [infiniteScrollDistance]="2"
-    [infiniteScrollThrottle]="5"
+    [infiniteScrollThrottle]="1000"
     (scrolled)="onScroll()">
-    <div class="inner">
-        <app-post [post]="post" *ngFor="let post of posts;index as i"></app-post>
+    <div class="inner-wall" *ngFor="let post of posts;index as i">
+        <app-post [post]="post"></app-post>
     </div>
+    <mat-spinner *ngIf="loadData"></mat-spinner>
+    <p *ngIf="dataLoadFailed">Something went wrong, try again</p>
 </div>

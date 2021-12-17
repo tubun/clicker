@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { ApiService } from '../shared/services/api.service';
 import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-wall',
   templateUrl: './wall.component.html',
-  styleUrls: ['./wall.component.scss']
+  styleUrls: ['./wall.component.scss'],
+  encapsulation: ViewEncapsulation.None
+
 })
 export class WallComponent implements OnInit {
 
   posts:any[]=[];
+  loadData:boolean = false;
+  dataLoadFailed:boolean = false;
   infiniteCounter=1;
   fetchData: any;
 
@@ -25,7 +29,6 @@ export class WallComponent implements OnInit {
   }
 
   onScroll() {
-    console.log('scrolled!!');
 
     this.fetchPosts();
 
@@ -38,11 +41,11 @@ export class WallComponent implements OnInit {
     ]
 
 
+    this.loadData = true;
+
     this.fetchData = forkJoin(apiBundle).subscribe(res=>{
 
       var userDatas:any[]=[];
-
-      console.log(userDatas.length)
 
       if(res && Array.isArray(res)){
         const parsedResponse = JSON.parse(res[0])
@@ -58,18 +61,17 @@ export class WallComponent implements OnInit {
               const userData = {
                 profile: user.picture.large,
                 userName: user.name.first,
+                lastName: user.name.last,
                 city: user.location.city,
                 country: user.location.country,
+                phone:user.phone
               }
 
               userDatas.push(userData)
             })
           }
 
-          console.log(userDatas)
         }
-
-        console.log(res[1])
 
         const parsedPost = JSON.parse(res[1])
 
@@ -86,14 +88,17 @@ export class WallComponent implements OnInit {
 
         this.posts = [...this.posts,...userDatas]
 
-        console.log(this.posts)
-
         this.infiniteCounter++
+
+        this.loadData = false;
+
+        this.dataLoadFailed = false;
 
       }
 
     },error=>{
-      console.log(error)
+      this.loadData = false;
+      this.dataLoadFailed = true;
     })
   }
 

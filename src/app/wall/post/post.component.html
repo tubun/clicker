@@ -4,7 +4,7 @@
             <img [src]="post.profile" alt="">
         </div>
         <div class="profile-details" (click)="openProfile()">
-            <small>{{post.userName}}</small>
+            <small class="user-name">{{post.userName}}</small>
             <small>{{post.city}}, {{post.country}}</small>
         </div>
     </div>
@@ -12,5 +12,8 @@
         <img [src]="post.image" alt="">
     </div>
     <app-interactions [comments]="post"></app-interactions>
-    <div class="comments"></div>
+    <div class="caption">
+        <small class="user-name">{{post.userName}}: &nbsp; &nbsp;</small>
+        <small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum suscipit debitis quia maxime assumenda doloribus nisi quis natus neque ab placeat, ea vero nulla veniam voluptates animi quaerat adipisci laboriosam?</small>
+    </div>
 </div>

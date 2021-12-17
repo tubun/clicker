@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { catchError,timeout,map } from 'rxjs/operators';
 import { Observable,throwError } from 'rxjs';
 
@@ -12,7 +11,6 @@ export class ApiService{
 
     constructor(
         private http: HttpClient,
-        private _router:Router,
     ){}
 
     get(...args:any[]):Observable<any>{

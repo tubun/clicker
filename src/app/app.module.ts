@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Services
 
 import { ApiService } from './shared/services/api.service';
+import { ProfileService } from './shared/store/profile.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ApiService } from './shared/services/api.service';
     BrowserAnimationsModule,
   ],
   providers: [
-    ApiService
+    ApiService,
+    ProfileService
   ],
   bootstrap: [AppComponent]
 })

@@ -37,6 +37,8 @@ $clicker-theme: mat.define-light-theme((
 
 body{
     margin: 0;
+    height: 95%;
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
 
 .container{
@@ -44,11 +46,24 @@ body{
     width: 60%;
 }
 
+.dialog-style{
+    height: 90%;
+    width: 45%;
+}
+
+mat-spinner{
+    margin: 0 auto;
+}
+
+
+
 @media screen and (max-width:768px){
     .container{
         width: 95%;
     }
-}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+    .dialog-style{
+        height: 80%;
+        width: 80%;
+    }
+}
