@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewEncapsulation  } from '@angular/core';
 import { ApiService } from '../shared/services/api.service';
+import { Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
 
 @Component({
@@ -18,7 +19,8 @@ export class WallComponent implements OnInit {
   fetchData: any;
 
   constructor(
-    private _api:ApiService
+    private _api:ApiService,
+    private _router: Router
   ) {
 }
 
@@ -100,6 +102,11 @@ export class WallComponent implements OnInit {
       this.loadData = false;
       this.dataLoadFailed = true;
     })
+  }
+
+  logOut(){
+    sessionStorage.clear();
+    this._router.navigate(['/login'])
   }
 
 }

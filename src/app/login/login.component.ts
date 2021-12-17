@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder,Validators } from '@angular/forms';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,8 @@ export class LoginComponent implements OnInit {
   loginForm:any;
 
   constructor(
-    private _fb:FormBuilder
+    private _fb:FormBuilder,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -31,11 +33,18 @@ export class LoginComponent implements OnInit {
   
 
   signUp(){
-    console.log(this.signupForm)
+    if(this.signupForm.status == "VALID"){
+      this.showLogin = true
+    }else{
+      this.showLogin = false;
+    }
   }
 
   logIn(){
-    console.log(this.loginForm)
+    if(this.loginForm.status == "VALID"){
+      sessionStorage.setItem('loggedIn','true')
+      this._router.navigate(['/wall'])
+    }
   }
 
 }

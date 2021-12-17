@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatIconRegistry } from '@angular/material/icon';
-import { DomSanitizer } from '@angular/platform-browser';
+import { CommentData } from '../../../../shared/interfaces/dialog-data';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
 @Component({
@@ -12,10 +12,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ShareComponent implements OnInit {
 
   platforms:any;
+  userData:any;
   constructor(
+    @Inject(MAT_DIALOG_DATA) public post: CommentData,
     private _dialog: MatDialog,
-    private _matIconRegistry: MatIconRegistry,
-    private _domSanitizer: DomSanitizer,
   ) { }
 
   ngOnInit(): void {
@@ -25,33 +25,27 @@ export class ShareComponent implements OnInit {
           icon: 'facebook',
           title: 'Facebook'
         },
-        {
-          icon: 'whatsapp',
-          title: 'Whatsapp'
-        },
+        // {
+        //   icon: 'whatsapp',
+        //   title: 'Whatsapp'
+        // },
         {
           icon: 'twitter',
           title: 'Twitter'
         },
-        {
-          icon: 'tiktok',
-          title: 'Tiktok'
-        },
+        // {
+        //   icon: 'tiktok',
+        //   title: 'Tiktok'
+        // },
       ]
   }
 
 
   openPlatform(index:number){
     if(index == 0){
-      window.location.href = "https://www.facebook.com/sharer/sharer.php?u="
+      window.location.href = `https://www.facebook.com/sharer/sharer.php?u=${this.post.post}`
     }else if(index == 1){
-      window.location.href = "https://www.whatsapp.com"
-    }
-    else if(index == 2){
-      window.location.href = "https://www.twitter.com"
-    }
-    else if(index == 3){
-      window.location.href = "https://www.tiktok.com"
+      window.location.href = `http://twitter.com/share?text=I am sharing in twitter&url=${this.post.post}&hashtags=clicker,photosharing-app,angular-app`
     }
   }
 

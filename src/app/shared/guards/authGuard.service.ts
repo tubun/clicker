@@ -3,7 +3,7 @@ import { CanActivate,Router } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable()
-export class StudentAuthService implements CanActivate{
+export class AuthGuardService implements CanActivate{
 
         studentId:any;
         constructor(

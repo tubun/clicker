@@ -3,6 +3,7 @@ import { ApiService } from '../shared/services/api.service';
 import { ProfileService } from '../shared/store/profile.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProfilePostComponent } from './profile-post/profile-post.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -22,6 +23,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
     private _api:ApiService,
     private _profile: ProfileService,
     private _dialog: MatDialog,
+    private _router: Router
   ) { }
 
   ngOnInit(): void {
@@ -74,6 +76,11 @@ export class ProfileComponent implements OnInit, OnDestroy {
       },
       panelClass: 'dialog-style'
     })
+  }
+
+  logOut(){
+    sessionStorage.clear();
+    this._router.navigate(['/login'])
   }
 
   ngOnDestroy(){

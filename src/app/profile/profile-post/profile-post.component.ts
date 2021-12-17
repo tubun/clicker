@@ -2,7 +2,7 @@ import { Component, OnInit,Inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { FormBuilder, Validators } from '@angular/forms';
 import { CommentData } from '../../shared/interfaces/dialog-data';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-profile-post',

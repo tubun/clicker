@@ -6,11 +6,11 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 // Services
 
 import { ApiService } from './shared/services/api.service';
 import { ProfileService } from './shared/store/profile.service';
+import { AuthGuardService } from './shared/guards/authGuard.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { ProfileService } from './shared/store/profile.service';
   ],
   providers: [
     ApiService,
-    ProfileService
+    ProfileService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

@@ -35,13 +35,27 @@ $clicker-theme: mat.define-light-theme((
 
 /* You can add global styles to this file, and also import other style files */
 
-body{
+:root{
+    --color0: white;
+    --color1: #5de6de;
+    --color2: #b58ecc;
+    --color3: black;
+    --color4: darkgray;
+    --color5: red;
+
+}
+
+
+html,body{
     margin: 0;
-    height: 95%;
+    height: 100%;
+    width: 100%;
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
 
 .container{
+    min-height: 100%;
+    height: auto;
     margin: 2rem auto;
     width: 60%;
 }

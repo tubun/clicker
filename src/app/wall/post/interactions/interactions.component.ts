@@ -22,6 +22,10 @@ export class InteractionsComponent implements OnInit {
 
   share(){
     const shareModal = this._dialog.open(ShareComponent,{
+      data:{
+        userName: this.comments.userName,
+        post: this.comments.image,
+      },
       height: '300px',
       width:'300px'
     })

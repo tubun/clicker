@@ -29,7 +29,7 @@ export class AppComponent implements OnInit{
 
     this._matIconRegistry.addSvgIcon(
       'twitter',
-      this._domSanitizer.bypassSecurityTrustResourceUrl('./assets/twitter.svg')
+      this._domSanitizer.bypassSecurityTrustResourceUrl('./assets/icons8-twitter.svg')
     )
 
     this._matIconRegistry.addSvgIcon(
