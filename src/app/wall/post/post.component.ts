@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileService } from '../../shared/store/profile.service';
 
@@ -11,6 +11,8 @@ import { ProfileService } from '../../shared/store/profile.service';
 export class PostComponent implements OnInit {
 
   @Input() post: any;
+  @Output() hidePost = new EventEmitter<string>();
+  isChecked:boolean = false;
 
   constructor(
     private _router:Router,
@@ -18,12 +20,19 @@ export class PostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    console.log(this.post)
   }
+  
 
   openProfile(){
 
     this._profile.setProfile(this.post)
     this._router.navigate(['/profile'])
+  }
+
+  togglePostVis(){
+    if(this.isChecked == true)
+    this.hidePost.emit(this.post.id)
   }
 
 }

@@ -1,11 +1,17 @@
-<div class="post">
-    <div class="user">
-        <div class="profile-img" (click)="openProfile()">
-            <img [src]="post.profile" alt="">
+<div class="post" *ngIf="!post.hidden">
+    <div class="header">
+        <div class="user">
+            <div class="profile-img" (click)="openProfile()">
+                <img [src]="post.profile" alt="">
+            </div>
+            <div class="profile-details" (click)="openProfile()">
+                <small class="user-name">{{post.userName}}</small>
+                <small>{{post.city}}, {{post.country}}</small>
+            </div>
         </div>
-        <div class="profile-details" (click)="openProfile()">
-            <small class="user-name">{{post.userName}}</small>
-            <small>{{post.city}}, {{post.country}}</small>
+        <div class="buttons">
+            <mat-slide-toggle color="primary" [(ngModel)]="isChecked" (change)="togglePostVis()"></mat-slide-toggle>
+            <mat-icon>hide_img</mat-icon>
         </div>
     </div>
     <div class="image">
@@ -17,3 +23,4 @@
         <small>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum suscipit debitis quia maxime assumenda doloribus nisi quis natus neque ab placeat, ea vero nulla veniam voluptates animi quaerat adipisci laboriosam?</small>
     </div>
 </div>
+<p class="hide-post" *ngIf="post.hidden">This post was hidden</p>

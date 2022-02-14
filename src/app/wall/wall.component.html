@@ -1,17 +1,19 @@
-<!-- Navbar -->
-<div class="navbar">
-    <div class="header">Clicker</div>
-    <button mat-icon-button (click)="logOut()"><mat-icon>logout</mat-icon></button>
-</div>
-<!-- Infinite scroller -->
-<div class="container"  
-    infiniteScroll
-    [infiniteScrollDistance]="2"
-    [infiniteScrollThrottle]="1000"
-    (scrolled)="onScroll()">
-    <div class="inner-wall" *ngFor="let post of posts;index as i">
-        <app-post [post]="post"></app-post>
+<div class="wall-container">
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="header">Clicker</div>
+        <button mat-icon-button (click)="logOut()"><mat-icon>logout</mat-icon></button>
     </div>
-    <mat-spinner *ngIf="loadData"></mat-spinner>
-    <p *ngIf="dataLoadFailed">Something went wrong, try again</p>
+    <!-- Infinite scroller -->
+    <div class="container"  
+        infiniteScroll
+        [infiniteScrollDistance]="2"
+        [infiniteScrollThrottle]="1000"
+        (scrolled)="onScroll()">
+        <div class="inner-wall" *ngFor="let post of posts;index as i">
+            <app-post [post]="post" (hidePost)="togglePost($event)"></app-post>
+        </div>
+        <mat-spinner *ngIf="loadData"></mat-spinner>
+        <p class="no-post" *ngIf="dataLoadFailed">Something went wrong, try again</p>
+    </div>
 </div>

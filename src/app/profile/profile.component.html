@@ -1,28 +1,30 @@
-<!-- Navbar -->
-<div class="navbar">
-    <div class="header">Clicker</div>
-    <button mat-icon-button (click)="logOut()"><mat-icon>logout</mat-icon></button>
-</div>
-
-<div class="container">
-    <div class="inner-profile" *ngIf="showProfile">
-        <div class="profile">
-            <div class="profile-pic">
-                <img [src]="userData.profile" alt="">
-            </div>
-            <div class="profile-info">
-                <span><mat-icon>person</mat-icon><small>{{userData.userName}} {{userData.lastName}}</small></span>
-                <span><mat-icon>place</mat-icon><small>{{userData.city}},&nbsp;{{userData.country}}</small></span>
-                <span><mat-icon>call</mat-icon><small>{{userData.phone}}</small></span>
-            </div>
-        </div>
-        <div class="post-grid">
-            <div *ngFor="let post of postImages;index as i" class="image" (click)="openPost(i)">
-                <img [src]="post" alt="">
-            </div>
-        </div>    
+<div class="profile-container">
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="header">Clicker</div>
+        <button mat-icon-button (click)="logOut()"><mat-icon>logout</mat-icon></button>
     </div>
-    <mat-spinner *ngIf="!showProfile"></mat-spinner>
-    <p *ngIf="profileLoadError">Something went wrong, try again</p>
+
+    <div class="container">
+        <div class="inner-profile" *ngIf="showProfile">
+            <div class="profile">
+                <div class="profile-pic">
+                    <img [src]="userData.profile" alt="">
+                </div>
+                <div class="profile-info">
+                    <span><mat-icon>person</mat-icon><small>{{userData.userName}} {{userData.lastName}}</small></span>
+                    <span><mat-icon>place</mat-icon><small>{{userData.city}},&nbsp;{{userData.country}}</small></span>
+                    <span><mat-icon>call</mat-icon><small>{{userData.phone}}</small></span>
+                </div>
+            </div>
+            <div class="post-grid">
+                <div *ngFor="let post of postImages;index as i" class="image" (click)="openPost(i)">
+                    <img [src]="post" alt="">
+                </div>
+            </div>    
+        </div>
+        <mat-spinner *ngIf="!showProfile"></mat-spinner>
+        <p *ngIf="profileLoadError">Something went wrong, try again</p>
+    </div>
 </div>
 
