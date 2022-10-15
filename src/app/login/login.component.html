@@ -1,51 +1,101 @@
 <div class="container-login">
+
+    <div class="app-name">
+        <span>Clicker App</span>
+    </div>
+
     <div class="inner-login">
 
+        <div class="form-header">
+            <span class="light-header">START FOR FREE</span>
+            <h1 class="bright-header" *ngIf="!showLogin">Create a new account</h1>
+            <h1 class="bright-header" *ngIf="showLogin">Open existing account</h1>
+            <div class="header-flex" *ngIf="!showLogin">
+                <span class="light-header">Alread a member?</span>
+                <span class="header-link" (click)="showLogin=!showLogin">Login</span>
+            </div>
+            <div class="header-flex" *ngIf="showLogin">
+                <span class="light-header">Don't have an account yet?</span>
+                <span class="header-link" (click)="showLogin=!showLogin">Signup</span>
+            </div>
+        </div>
         <!-- Signup view -->
         <div class="signup" *ngIf="!showLogin">
-            <div class="tagline">CLICKER</div>
             <form [formGroup]="signupForm" (ngSubmit)="signUp()" >
-                <div class="form-wrapper">
-                    <label>Name</label>
-                    <input type="text" placeholder="Enter name" formControlName="name" [class.invalid]="signupForm.get('name').invalid && 
-                    (signupForm.get('name').touched || signupForm.get('name').dirty)">
-                
-                    <!-- Validation error messages -->
-                    <div class="error-text" *ngIf="signupForm.get('name').invalid && 
-                        (signupForm.get('name').touched || signupForm.get('name').dirty)">
-                        <small *ngIf="signupForm.get('name').errors?.required">Name is required</small>
-                        <small *ngIf="signupForm.get('name').errors?.minlength">Minimum 3 characters</small>
+                <div class="form-wrapper-flex">
+                    <!-- <label>Name</label>
+                    <input type="text" placeholder="Enter name" > -->
+                    
+                    <div class="form-wrapper">
+                        <mat-form-field class="form-field" appearance="fill">
+                            <mat-label>First Name</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="Sushi" formControlName="firstName" [class.invalid]="signupForm.get('firstName').invalid && 
+                            (signupForm.get('firstName').touched || signupForm.get('firstName').dirty)">
+                            <mat-icon matSuffix>badge</mat-icon>
+                        </mat-form-field>
+                    
+                        <!-- Validation error messages -->
+                        <div class="error-text" *ngIf="signupForm.get('firstName').invalid && 
+                            (signupForm.get('firstName').touched || signupForm.get('firstName').dirty)">
+                            <small *ngIf="signupForm.get('firstName').errors?.required">First name is required</small>
+                            <small *ngIf="signupForm.get('firstName').errors?.minlength">Minimum 3 characters</small>
+                        </div>
+                    </div>
+
+                    <div class="form-wrapper">
+                        <mat-form-field class="form-field" appearance="fill">
+                            <mat-label>Last Name</mat-label>
+                            <input matInput placeholder="Ex. Pizza" value="Sushi" formControlName="lastName" [class.invalid]="signupForm.get('lastName').invalid && 
+                            (signupForm.get('lastName').touched || signupForm.get('lastName').dirty)">
+                            <mat-icon matSuffix>badge</mat-icon>
+                        </mat-form-field>
+                    
+                        <!-- Validation error messages -->
+                        <div class="error-text" *ngIf="signupForm.get('lastName').invalid && 
+                            (signupForm.get('lastName').touched || signupForm.get('lastName').dirty)">
+                            <small *ngIf="signupForm.get('lastName').errors?.required">Last name is required</small>
+                            <small *ngIf="signupForm.get('lastName').errors?.minlength">Minimum 3 characters</small>
+                        </div>
                     </div>
 
                 </div>
 
                 <div class="form-wrapper">
-                    <label>Email</label>
-                    <input type="text" placeholder="Enter email" formControlName="email" [class.invalid]="signupForm.get('email').invalid && 
-                    (signupForm.get('email').touched || signupForm.get('email').dirty)">
+                    <mat-form-field class="form-field" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput placeholder="Ex. Pizza" value="Sushi" formControlName="email" [class.invalid]="signupForm.get('email').invalid && 
+                        (signupForm.get('email').touched || signupForm.get('email').dirty)">
+                        <mat-icon matSuffix>email</mat-icon>
+                    </mat-form-field>
                 
                     <!-- Validation error messages -->
                     <div class="error-text" *ngIf="signupForm.get('email').invalid && 
                         (signupForm.get('email').touched || signupForm.get('email').dirty)">
                         <small *ngIf="signupForm.get('email').errors?.required">Email id is required</small>
-                        <small *ngIf="signupForm.get('email').errors?.pattern">Enter a valid email</small>
+                        <small *ngIf="signupForm.get('email').errors?.pattern">Enter a valid email id</small>
                     </div>
                 </div>
 
                 <div class="form-wrapper">
-                    <label>Password</label>
-                    <input type="password" placeholder="Enter password" formControlName="password" [class.invalid]="signupForm.get('password').invalid && 
-                    (signupForm.get('password').touched || signupForm.get('password').dirty)">
-
-                     <!-- Validation error messages -->
+                    <mat-form-field class="form-field" appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input *ngIf="!hidePassword" matInput placeholder="Ex. Pizza" value="Sushi" type="password" formControlName="password" [class.invalid]="signupForm.get('password').invalid && 
+                        (signupForm.get('password').touched || signupForm.get('password').dirty)">
+                        <input *ngIf="hidePassword" matInput placeholder="Ex. Pizza" value="Sushi" type="text" formControlName="password" [class.invalid]="signupForm.get('password').invalid && 
+                        (signupForm.get('password').touched || signupForm.get('password').dirty)">
+                        <mat-icon matSuffix *ngIf="!hidePassword" class="clickable" (click)="hidePassword=!hidePassword">visibility</mat-icon>
+                        <mat-icon matSuffix *ngIf="hidePassword" class="clickable" (click)="hidePassword=!hidePassword">visibility_off</mat-icon>
+                    </mat-form-field>
+                
+                    <!-- Validation error messages -->
                     <div class="error-text" *ngIf="signupForm.get('password').invalid && 
-                    (signupForm.get('password').touched || signupForm.get('password').dirty)">
+                        (signupForm.get('password').touched || signupForm.get('password').dirty)">
                         <small *ngIf="signupForm.get('password').errors?.required">Password is required</small>
                         <small *ngIf="signupForm.get('password').errors?.pattern">Password should be alphanumeric with 6-14 characters</small>
                     </div>
                 </div>
+
                 <div class="buttons">
-                    <a (click)="showLogin=!showLogin">Login</a>
                     <button mat-raised-button type="submit">Sign Up</button>
                 </div>
             </form>
@@ -55,43 +105,48 @@
 
         <!-- Login View -->
         <div class="login" *ngIf="showLogin">
-            <div class="tagline">CLICKER</div>
             <form [formGroup]="loginForm" (ngSubmit)="logIn()" >
+
+
                 <div class="form-wrapper">
-                    <label>Email</label>
-                    <input type="text" placeholder="Enter email" formControlName="email"[class.invalid]="loginForm.get('email').invalid && 
-                    (loginForm.get('email').touched || loginForm.get('email').dirty)">
+                    <mat-form-field class="form-field" appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input type="email" matInput placeholder="Ex. Pizza" value="Sushi" formControlName="email" [class.invalid]="loginForm.get('email').invalid && 
+                        (loginForm.get('email').touched || loginForm.get('email').dirty)">
+                        <mat-icon matSuffix>email</mat-icon>
+                    </mat-form-field>
                 
                     <!-- Validation error messages -->
                     <div class="error-text" *ngIf="loginForm.get('email').invalid && 
                         (loginForm.get('email').touched || loginForm.get('email').dirty)">
                         <small *ngIf="loginForm.get('email').errors?.required">Email id is required</small>
-                        <small *ngIf="loginForm.get('email').errors?.pattern">Enter a valid email</small>
+                        <small *ngIf="loginForm.get('email').errors?.pattern">Enter a valid email id</small>
                     </div>
                 </div>
 
                 <div class="form-wrapper">
-                    <label>Password</label>
-                    <input type="password" placeholder="Enter password" formControlName="password" [class.invalid]="loginForm.get('password').invalid && 
-                    (loginForm.get('password').touched || loginForm.get('password').dirty)">
-
-                     <!-- Validation error messages -->
+                    <mat-form-field class="form-field" appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input *ngIf="!hidePassword" matInput placeholder="Ex. Pizza" value="Sushi" type="password" formControlName="password" [class.invalid]="loginForm.get('password').invalid && 
+                        (loginForm.get('password').touched || loginForm.get('password').dirty)">
+                        <input *ngIf="hidePassword" matInput placeholder="Ex. Pizza" value="Sushi" type="text" formControlName="password" [class.invalid]="loginForm.get('password').invalid && 
+                        (loginForm.get('password').touched || loginForm.get('password').dirty)">
+                        <mat-icon matSuffix *ngIf="!hidePassword" class="clickable" (click)="hidePassword=!hidePassword">visibility</mat-icon>
+                        <mat-icon matSuffix *ngIf="hidePassword" class="clickable" (click)="hidePassword=!hidePassword">visibility_off</mat-icon>
+                    </mat-form-field>
+                
+                    <!-- Validation error messages -->
                     <div class="error-text" *ngIf="loginForm.get('password').invalid && 
-                    (loginForm.get('password').touched || loginForm.get('password').dirty)">
+                        (loginForm.get('password').touched || loginForm.get('password').dirty)">
                         <small *ngIf="loginForm.get('password').errors?.required">Password is required</small>
                         <small *ngIf="loginForm.get('password').errors?.pattern">Password should be alphanumeric with 6-14 characters</small>
                     </div>
                 </div>
+
                 <div class="buttons">
-                    <a (click)="showLogin=!showLogin">Sign Up</a>
                     <button mat-raised-button type="submit">Login</button>
                 </div>
             </form>
-        </div>
-
-        <!-- Image -->
-        <div class="landing-image">
-            <img src="../../assets/mehdi-messrro-asCFxC-GPvA-unsplash.jpg" alt="">
         </div>
 
     </div>

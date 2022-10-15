@@ -1,60 +1,105 @@
 .container-login{
     height: 100%;
     width: 100%;
-    background-image: url(../../assets/hans-isaacson-9ey2kb_OizQ-unsplash.jpg);
-    background-position: center;
+    background-image: linear-gradient(100deg,
+    rgb(0, 5, 10),rgba(253, 251, 251, 0)), url('../../assets/51363.jpg');
+    overflow: hidden;
+
+    .app-name{
+        position: relative;
+        top: 5%;
+        left:5%;
+        color: white;
+        font-size: large;
+    }
 
     .inner-login{
-        width: 50%;
+        width: 45%;
         height: 80%;
         position: relative;
-        top: 10%;
-        margin: 0 auto;    
+        top: 20%;
+        left:5%;
+        // margin: 0 auto;    
         border-radius: 10px;
-        box-shadow: 2px 2px 15px 5px var(--color3);
-        display: flex;
-        background: var(--color0);
+        // box-shadow: 2px 2px 15px 5px var(--color3);
+        // background: var(--color0);
+
+        .form-header{
+            display: flex;
+            flex-direction: column;
+            height: 20%;
+            justify-content: space-evenly;
+            letter-spacing: 0.1em;
+
+            .light-header{
+                color: lightslategray;
+            }
+
+            .bright-header{
+                color: white;
+                font-size: 48px;
+            }
+
+            .header-flex{
+                display: flex;
+                .header-link{
+                    padding-left: 1rem;
+                    color: rgb(51, 51, 250);
+                    cursor: pointer;
+                }
+            }
+            
+        }
 
         .signup,.login{
-            border-radius: 10px;
-            height: auto;
-            width: 40%;
-            margin: 0 auto;
-    
-            .tagline{
-                text-align: center;
-                font-size: x-large;
-                position: relative;
-                top: 25%;
-            }
+            
+
     
             form{
-                position: relative;
-                top: 30%;
+                margin-top: 2rem;   
+                width: 60%;
+            }
+
+            .form-wrapper-flex{
+                display: flex;
+                justify-content: space-between;
             }
     
             .form-wrapper{
                 display: flex;
                 flex-direction: column;
                 margin: 1rem 0;
-    
-                label{
-                    padding-left: 0.8rem;
-                }
-    
-                input{
+
+                
+                .form-field{
+
+                    background-color: #323645;
                     border-radius: 10px;
-                    border: 1px solid var(--color2);
-                    height: 1.7rem;
-                    font-size: 1rem;
-                    outline: none;
-                    margin: 0.4rem;
-                    padding-left: 0.4rem;
+
+                    mat-label{
+                        color: lightgray;
+                    }
+
+                    input{
+                        color: white;
+                        border: none;
+                    }
                 }
+            
     
-                .invalid{
-                    border: 1px solid var(--color5);
-                }
+                // input{
+                //     border-radius: 10px;
+                //     border: 1px solid var(--color2);
+                //     height: 1.7rem;
+                //     font-size: 1rem;
+                //     outline: none;
+                //     margin: 0.4rem;
+                //     padding-left: 0.4rem;
+                // }
+    
+                // .invalid{
+                //     border: 1px solid var(--color5);
+                // }
     
                 .error-text{
                     color: var(--color5);
