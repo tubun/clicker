@@ -1,20 +1,33 @@
-.navbar{
-    display: flex;
-    box-sizing: border-box;
-    padding: 1rem;
-    height: 7%;
-    justify-content: space-between;
-    align-items: baseline;
-    background-color: var(--color1);
-    background-image: linear-gradient(315deg, var(--color1) 0%, var(--color2) 74%);
-    color: var(--color0);
+.wall-container{
+    height: auto;
+    overflow-x: hidden;
 
-}
+    .navbar{
+        display: flex;
+        box-sizing: border-box;
+        padding: 1rem;
+        height: fit-content;
+        justify-content: space-between;
+        align-items: baseline;
+        background-color: var(--color1);
+        background-image: linear-gradient(315deg, var(--color1) 0%, var(--color2) 74%);
+        color: var(--color0);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+    }
+    
+    
+    .inner-wall{
+        height: 90%;
+        margin: 1rem
+    }
 
-
-.inner-wall{
-    height: 90%;
-    margin: 1rem
+    .no-post{
+        position: relative;
+        top: 30vh;
+        text-align: center;
+    }
 }
 
 

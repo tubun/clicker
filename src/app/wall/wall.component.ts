@@ -59,8 +59,9 @@ export class WallComponent implements OnInit {
           if(Array.isArray(users)){
             
             // Construct user data
-            users.forEach(user=>{
+            users.forEach((user,index)=>{
               const userData = {
+                id: index,
                 profile: user.picture.large,
                 userName: user.name.first,
                 lastName: user.name.last,
@@ -90,6 +91,12 @@ export class WallComponent implements OnInit {
 
         this.posts = [...this.posts,...userDatas]
 
+        this.posts.map((post,index)=>{
+          post['id'] = index,
+          post['hidden'] = false
+        })
+
+
         this.infiniteCounter++
 
         this.loadData = false;
@@ -102,6 +109,14 @@ export class WallComponent implements OnInit {
       this.loadData = false;
       this.dataLoadFailed = true;
     })
+  }
+
+  togglePost(index:any){
+    const dissapearingPost = setTimeout(()=>{
+      this.posts.splice(index,1,{'hidden': true})
+    },5000)
+
+    console.log(this.posts)
   }
 
   logOut(){

@@ -53,6 +53,12 @@
             
 
     
+        }
+
+        .signup,.login{
+            
+
+    
             form{
                 margin-top: 2rem;   
                 width: 60%;
@@ -140,8 +146,10 @@
 @media screen and (max-width:768px){
     .container-login{
         background: var(--color0);
+        margin-top: 10rem;
+        height: auto;
         .inner-login{
-            height: 100%;
+            height: fit-content;
             width: 70%;
             border-radius: 0;
             box-shadow: none;
@@ -150,9 +158,11 @@
             .signup,.login{
                 width: 100%;
                 margin: 0;
+                height: fit-content;
     
                 form{
                     top: 30%;
+                    width: 100%;
                 }
             }
     
