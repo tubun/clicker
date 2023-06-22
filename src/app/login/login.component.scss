@@ -9,7 +9,7 @@
         position: relative;
         top: 5%;
         left:5%;
-        color: white;
+        color: var(--color0);
         font-size: large;
     }
 
@@ -19,10 +19,8 @@
         position: relative;
         top: 20%;
         left:5%;
-        // margin: 0 auto;    
         border-radius: 10px;
-        // box-shadow: 2px 2px 15px 5px var(--color3);
-        // background: var(--color0);
+      
 
         .form-header{
             display: flex;
@@ -32,11 +30,11 @@
             letter-spacing: 0.1em;
 
             .light-header{
-                color: lightslategray;
+                color: var(--color7);
             }
 
             .bright-header{
-                color: white;
+                color: var(--color0);
                 font-size: 48px;
             }
 
@@ -44,7 +42,7 @@
                 display: flex;
                 .header-link{
                     padding-left: 1rem;
-                    color: rgb(51, 51, 250);
+                    color: var(--color6);
                     cursor: pointer;
                 }
             }
@@ -73,15 +71,15 @@
                 
                 .form-field{
 
-                    background-color: #323645;
+                    background-color: var(--color8);
                     border-radius: 10px;
 
                     mat-label{
-                        color: lightgray;
+                        color: var(--color7);
                     }
 
                     input{
-                        color: white;
+                        color: var(--color0);
                         border: none;
                     }
                 }
@@ -109,7 +107,7 @@
             }
     
             .buttons{
-                padding: 0 0.8rem;
+                padding: 0.8rem 0;
                 display: flex;
                 justify-content: space-between;
                 align-items: baseline;
@@ -119,8 +117,8 @@
                 }
     
                 button{
-                    background: var(--color1);
-                    color: var(--color3);
+                    background: var(--color6);
+                    color: var(--color0);
                 }
             }
         }
