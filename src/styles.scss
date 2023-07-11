@@ -38,7 +38,7 @@ $clicker-theme: mat.define-light-theme((
 :root{
     --color0: white;
     --color1: #5de6de;
-    --color2: #b58ecc;
+    --color2: #231e6e;
     --color3: black;
     --color4: darkgray;
     --color5: red;
@@ -75,6 +75,9 @@ mat-spinner{
     margin: 0 auto;
 }
 
+mat-icon{
+    line-height: 20px !important;
+}
 
 
 @media screen and (max-width:768px){

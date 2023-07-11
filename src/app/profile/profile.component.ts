@@ -78,6 +78,10 @@ export class ProfileComponent implements OnInit, OnDestroy {
     })
   }
 
+  goBackToWall(){
+    this._router.navigate(['/wall'])
+  }
+
   logOut(){
     sessionStorage.clear();
     this._router.navigate(['/login'])
