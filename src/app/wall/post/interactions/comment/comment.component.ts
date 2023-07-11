@@ -98,6 +98,7 @@ export class CommentComponent implements OnInit {
     }
 
     this.userComments.push(commentDetails)
+    this.commentForm.reset();
     
   }
 

@@ -98,7 +98,7 @@ export class ProfilePostComponent implements OnInit {
     }
 
     this.userComments.push(commentDetails)
-    
+    this.commentForm.reset();
   }
 
   closePrompt(){
